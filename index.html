@@ -51,11 +51,26 @@
   .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
   .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
   .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: start; }
+  .contact-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center; }
   .nav { display: flex; align-items: center; gap: 30px; }
+
+  .gw-field { display: flex; flex-direction: column; gap: 7px; }
+  .gw-label { font-family: var(--font-data); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #8fa6c2; }
+  .gw-input, .gw-select, .gw-textarea {
+    width: 100%; padding: 12px 14px; font-family: var(--font-sans); font-size: 15px; color: #eaf6ff;
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(120,160,200,0.22); border-radius: 6px;
+    transition: border-color var(--duration-normal) var(--ease-standard), box-shadow var(--duration-normal) var(--ease-standard);
+    -webkit-appearance: none; appearance: none;
+  }
+  .gw-textarea { resize: vertical; min-height: 92px; line-height: 1.5; }
+  .gw-select { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='%238fa6c2' stroke-width='1.6' stroke-linecap='round'/></svg>"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+  .gw-select option { background: #041526; color: #eaf6ff; }
+  .gw-input::placeholder, .gw-textarea::placeholder { color: #6f8bad; }
+  .gw-input:focus, .gw-select:focus, .gw-textarea:focus { outline: none; border-color: #38E1FF; box-shadow: 0 0 0 3px rgba(56,225,255,0.15); }
 
   @media (max-width: 900px) {
     .hero-img-wrap { width: 100% !important; opacity: 0.5; }
-    .hero-grid, .cap-grid, .tier-grid, .work-grid, .why-grid, .foot-grid { grid-template-columns: 1fr; }
+    .hero-grid, .cap-grid, .tier-grid, .work-grid, .why-grid, .foot-grid, .contact-grid { grid-template-columns: 1fr; }
     .nav a:not(.btn-primary) { display: none; }
     .hero-pad { padding-top: 128px !important; }
   }
@@ -314,11 +329,46 @@
   <section id="contact" style="background: #02040b; padding: 40px 32px 100px; scroll-margin-top: 72px;">
     <div class="reveal" style="position: relative; max-width: var(--container-xl); margin: 0 auto; overflow: hidden; border-radius: 14px; padding: 72px clamp(32px, 6vw, 84px); background: radial-gradient(110% 140% at 85% 0%, #0c3a63 0%, #041526 55%, #02040b 100%); border: 1px solid rgba(56,225,255,0.28); box-shadow: 0 0 60px rgba(56,225,255,0.15), inset 0 0 60px rgba(56,225,255,0.06);">
       <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(56,225,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(56,225,255,0.06) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none; -webkit-mask-image: radial-gradient(60% 80% at 80% 30%, black, transparent 75%); mask-image: radial-gradient(60% 80% at 80% 30%, black, transparent 75%);"></div>
-      <div style="position: relative; z-index: 2; max-width: 640px;">
-        <span style="font-family: var(--font-data); font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: #7ff0ff;">Book a Systems Audit · £750</span>
-        <h2 style="font-size: clamp(32px, 4vw, 54px); font-weight: 800; letter-spacing: -0.035em; margin: 16px 0 18px; line-height: 1.02; color: #eaf6ff; text-shadow: 0 0 40px rgba(56,225,255,0.3);">Stop chasing the work. Start running it.</h2>
-        <p style="font-size: 18px; color: #b9cbe2; line-height: 1.6; margin: 0 0 34px;">A clear, written plan for the website and automation that will save you the most time — whether you build it with us or not. Credited in full against any build.</p>
-        <a class="btn-primary" href="mailto:hello@gridworkco.com?subject=Systems%20Audit%20enquiry" style="display: inline-flex; align-items: center; gap: 10px; padding: 16px 32px; border-radius: 6px; font-size: 17px; font-weight: 600; color: #02121f; background: linear-gradient(135deg, #38E1FF, #1866A2); border: 1px solid rgba(56,225,255,0.6); box-shadow: 0 0 32px rgba(56,225,255,0.5), inset 0 1px 0 rgba(255,255,255,0.35);">Book a Systems Audit →</a>
+      <div class="contact-grid" style="position: relative; z-index: 2;">
+        <div>
+          <span style="font-family: var(--font-data); font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: #7ff0ff;">Book a Systems Audit · £750</span>
+          <h2 style="font-size: clamp(30px, 3.6vw, 50px); font-weight: 800; letter-spacing: -0.035em; margin: 16px 0 18px; line-height: 1.03; color: #eaf6ff; text-shadow: 0 0 40px rgba(56,225,255,0.3);">Stop chasing the work. Start running it.</h2>
+          <p style="font-size: 17px; color: #b9cbe2; line-height: 1.6; margin: 0 0 26px;">Tell me what your business does and where the admin bites. You'll get a clear, written plan for the website and the automation behind it that will save you the most time — whether you build it with us or not. Credited in full against any build.</p>
+          <div style="display: flex; flex-direction: column; gap: 11px;">
+            <div style="display: flex; align-items: center; gap: 11px; font-size: 14.5px; color: #cddcee;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38E1FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Fixed £750 — credited in full against any build</div>
+            <div style="display: flex; align-items: center; gap: 11px; font-size: 14.5px; color: #cddcee;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38E1FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>A written plan you keep — no obligation</div>
+            <div style="display: flex; align-items: center; gap: 11px; font-size: 14.5px; color: #cddcee;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#38E1FF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Straight to the engineer — no account managers</div>
+          </div>
+        </div>
+        <form id="gw-enquiry" style="position: relative; background: rgba(2,10,20,0.55); border: 1px solid rgba(56,225,255,0.22); border-radius: 12px; padding: 26px 24px; display: flex; flex-direction: column; gap: 15px;">
+          <div class="gw-field">
+            <label class="gw-label" for="gw-name">Your name</label>
+            <input class="gw-input" id="gw-name" name="name" type="text" placeholder="Jane Smith" required>
+          </div>
+          <div class="gw-field">
+            <label class="gw-label" for="gw-business">Business</label>
+            <input class="gw-input" id="gw-business" name="business" type="text" placeholder="Smith Fabrication Ltd">
+          </div>
+          <div class="gw-field">
+            <label class="gw-label" for="gw-email">Email</label>
+            <input class="gw-input" id="gw-email" name="email" type="email" placeholder="jane@smithfab.co.uk" required>
+          </div>
+          <div class="gw-field">
+            <label class="gw-label" for="gw-need">What do you need?</label>
+            <select class="gw-select" id="gw-need" name="need">
+              <option>Systems Audit (£750)</option>
+              <option>A website — Site + Systems Sprint</option>
+              <option>Automation — Systems Build</option>
+              <option>Not sure yet — help me work it out</option>
+            </select>
+          </div>
+          <div class="gw-field">
+            <label class="gw-label" for="gw-message">What's eating your time? (optional)</label>
+            <textarea class="gw-textarea" id="gw-message" name="message" placeholder="e.g. quotes take forever, enquiries get lost, invoices chased by hand…"></textarea>
+          </div>
+          <button class="btn-primary" type="submit" style="margin-top: 4px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 28px; border-radius: 6px; font-size: 16px; font-weight: 600; color: #02121f; background: linear-gradient(135deg, #38E1FF, #1866A2); border: 1px solid rgba(56,225,255,0.6); box-shadow: 0 0 28px rgba(56,225,255,0.45), inset 0 1px 0 rgba(255,255,255,0.35); cursor: pointer;">Send enquiry →</button>
+          <p style="font-family: var(--font-data); font-size: 11px; color: #7f96b2; margin: 2px 0 0; line-height: 1.5; text-align: center;">Opens your email app, pre-addressed to hello@gridworkco.com. Prefer to just email? <a href="mailto:hello@gridworkco.com?subject=Systems%20Audit%20enquiry" style="color:#7fd6ff;">hello@gridworkco.com</a></p>
+        </form>
       </div>
     </div>
   </section>
@@ -353,6 +403,26 @@
       ents.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
     els.forEach(function (e) { io.observe(e); });
+
+    var form = document.getElementById('gw-enquiry');
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var val = function (id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; };
+        var name = val('gw-name'), business = val('gw-business'), email = val('gw-email'), need = val('gw-need'), message = val('gw-message');
+        var subject = 'Enquiry: ' + (need || 'Gridwork') + (business ? ' — ' + business : '');
+        var body = [
+          'Name: ' + name,
+          'Business: ' + business,
+          'Email: ' + email,
+          'Interested in: ' + need,
+          '',
+          'What\'s eating their time:',
+          message || '(none provided)'
+        ].join('\n');
+        window.location.href = 'mailto:hello@gridworkco.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      });
+    }
   })();
 </script>
 </body>
